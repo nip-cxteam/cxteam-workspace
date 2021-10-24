@@ -10,8 +10,8 @@ c.ServerProxy.servers = {
     #     'launcher_entry': {'title': 'RStudio', 'icon_path': '/usr/local/share/assets/Antu_rstudio.svg'}
     # },
     'gotty': {
-        'command': ['/usr/local/bin/ttyd', '--port', '{port}', 'tmux new-session -A -s main'],
-        'environment': {'USER':'jovyan', 'TERM': 'xterm'},
+        'command': ['/usr/local/bin/ttyd', '-i', '0.0.0.0', '--uid', '1000', '--port', '{port}', 'tmux new-session -A -s main'],
+        'environment': {'USER':'jovyan'},
         'timeout': 20,
         'launcher_entry': {'title': 'Byobu (ttyd)', 'icon_path': '/usr/local/share/assets/Byobu.svg'}
     }
