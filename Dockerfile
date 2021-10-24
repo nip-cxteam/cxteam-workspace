@@ -5,9 +5,10 @@ USER root
 WORKDIR /tmp
 
 RUN apt update && apt install -y \
-    less openssh-client mosh zstd zsh htop curl git
+    less openssh-client mosh zstd \
+    zsh htop curl git byobu vim
 
-RUN mamba install -y vim byobu \
+RUN mamba install -y \
         singularity rclone mkl \
         nb_conda_kernels jupyter-server-proxy \
         numpy scipy matplotlib pandas
