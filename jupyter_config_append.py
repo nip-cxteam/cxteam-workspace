@@ -1,6 +1,6 @@
 c.ServerProxy.servers = {
     'code': {
-        'command': ['/usr/local/bin/code-server', '--auth', 'none', '--disable-telemetry', '--bind-addr', '0.0.0.0:{port}'],
+        'command': ['/usr/bin/code-server', '--auth', 'none', '--disable-telemetry', '--bind-addr', '0.0.0.0:{port}'],
         'timeout': 20,
         'launcher_entry': {'title': 'VS Code', 'icon_path': '/usr/local/share/assets/vscode.svg'}
     },

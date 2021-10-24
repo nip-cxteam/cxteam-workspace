@@ -19,6 +19,9 @@ RUN curl -Lkv -o /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/do
 ## Install code-server
 RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- ---prefix=/usr/local
 
+RUN curl -Lkv -o code-server.deb https://github.com/cdr/code-server/releases/download/v3.12.0/code-server_3.12.0_amd64.deb &&\
+    dpkg -i code-server.deb
+
 COPY assets /usr/local/share/assets
 
 COPY condarc_append.txt /tmp/
