@@ -12,7 +12,11 @@ RUN mamba install -y vim byobu \
         nb_conda_kernels jupyter-server-proxy \
         numpy scipy matplotlib pandas
 
-## Install ttyd
+## Install gotty
+RUN wget https://github.com/yudai/gotty/releases/download/v1.0.1/gotty_linux_amd64.tar.gz &&\
+    tar xvf gotty_linux_amd64.tar.gz &&\
+    mv gotty /usr/local/bin/
+
 RUN curl -Lkv -o /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 &&\
     chmod +x /usr/local/bin/ttyd
 
