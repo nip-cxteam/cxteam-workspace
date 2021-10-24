@@ -44,3 +44,4 @@ RUN rm -rf /tmp/* &&\
 ## Return to base-notebook default user
 USER jovyan
 WORKDIR /home/jovyan
+RUN chown -R jovyan /home/jovyan
