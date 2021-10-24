@@ -17,8 +17,6 @@ RUN curl -Lkv -o /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/do
     chmod +x /usr/local/bin/ttyd
 
 ## Install code-server
-RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- ---prefix=/usr/local
-
 RUN curl -Lkv -o code-server.deb https://github.com/cdr/code-server/releases/download/v3.12.0/code-server_3.12.0_amd64.deb &&\
     dpkg -i code-server.deb
 
