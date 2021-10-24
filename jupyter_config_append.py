@@ -13,6 +13,6 @@ c.ServerProxy.servers = {
         'command': ['/usr/local/bin/gotty', '-w', '--port', '{port}', 'byobu'],
         'environment': {'USER':'jovyan', 'TERM': 'xterm-256color'},
         'timeout': 20,
-        'launcher_entry': {'title': 'Byobu', 'icon_path': '/usr/local/share/assets/Byobu.svg'}
+        'launcher_entry': {'title': 'GoTTY', 'icon_path': '/usr/local/share/assets/Byobu.svg'}
     }
 }

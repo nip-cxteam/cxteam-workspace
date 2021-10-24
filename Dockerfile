@@ -14,12 +14,12 @@ RUN mamba install -y \
         numpy scipy matplotlib pandas
 
 ## Install gotty
-RUN wget https://github.com/yudai/gotty/releases/download/v1.0.1/gotty_linux_amd64.tar.gz &&\
-    tar xvf gotty_linux_amd64.tar.gz &&\
+RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_amd64.tar.gz  &&\
+    tar xvf gotty_2.0.0-alpha.3_linux_amd64.tar.gz &&\
     mv gotty /usr/local/bin/
 
-RUN curl -Lkv -o /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 &&\
-    chmod +x /usr/local/bin/ttyd
+# RUN curl -Lkv -o /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 &&\
+#     chmod +x /usr/local/bin/ttyd
 
 ## Install code-server
 RUN curl -Lkv -o code-server.deb https://github.com/cdr/code-server/releases/download/v3.12.0/code-server_3.12.0_amd64.deb &&\
