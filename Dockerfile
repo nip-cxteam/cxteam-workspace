@@ -20,6 +20,10 @@ RUN curl -Lkv -o /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/do
 RUN curl -Lkv -o code-server.deb https://github.com/cdr/code-server/releases/download/v3.12.0/code-server_3.12.0_amd64.deb &&\
     dpkg -i code-server.deb
 
+## Install Rstudio
+RUN curl -Lkv -o rstudio.deb https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.0-351-amd64.deb &&\
+    dpkg -i rstudio.deb
+
 COPY assets /usr/local/share/assets
 
 COPY condarc_append.txt /tmp/

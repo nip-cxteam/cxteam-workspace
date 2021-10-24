@@ -5,14 +5,14 @@ c.ServerProxy.servers = {
         'launcher_entry': {'title': 'VS Code', 'icon_path': '/usr/local/share/assets/vscode.svg'}
     },
     'rstudio': {
-        'command': ['/usr/lib/rstudio-server/bin/rserver', '--auth-none', '1', '--www-address', '127.0.0.1', '--www-port', '{port}'],
+        'command': ['/usr/bin/rserver', '--auth-none', '1', '--www-address', '127.0.0.1', '--www-port', '{port}'],
         'timeout': 20, 'environment': {'USER':'jovyan'},
         'launcher_entry': {'title': 'RStudio', 'icon_path': '/usr/local/share/assets/Antu_rstudio.svg'}
     },
     'gotty': {
-        'command': ['/usr/local/bin/ttyd', '-w', '--port', '{port}', 'tmux new-session -A -s main'],
+        'command': ['/usr/local/bin/ttyd', '--port', '{port}', 'tmux new-session -A -s main'],
         'environment': {'USER':'jovyan', 'TERM': 'xterm'},
         'timeout': 20,
-        'launcher_entry': {'title': '', 'icon_path': '/usr/local/share/assets/Byobu.svg'}
+        'launcher_entry': {'title': 'Byobu (ttyd)', 'icon_path': '/usr/local/share/assets/Byobu.svg'}
     }
 }
