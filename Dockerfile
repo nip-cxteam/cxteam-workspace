@@ -42,6 +42,6 @@ RUN rm -rf /tmp/* &&\
     mamba clean --all -f -y
 
 ## Return to base-notebook default user
+RUN chown -R jovyan /home/jovyan
 USER jovyan
 WORKDIR /home/jovyan
-RUN chown -R jovyan /home/jovyan
