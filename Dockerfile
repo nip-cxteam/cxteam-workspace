@@ -5,16 +5,19 @@ USER root
 WORKDIR /tmp
 
 RUN apt update && apt install -y \
-    less openssh-client mosh zstd htop curl git
+    less openssh-client mosh zstd zsh htop curl git
 
 RUN mamba install -y vim byobu \
-        singularity code-server rclone mkl \
+        singularity rclone mkl \
         nb_conda_kernels jupyter-server-proxy \
         numpy scipy matplotlib pandas
 
 ## Install ttyd
 RUN curl -Lkv -o /usr/local/bin/ttyd https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64 &&\
     chmod +x /usr/local/bin/ttyd
+
+## Install code-server
+RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- ---prefix=/usr/local
 
 COPY assets /usr/local/share/assets
 
