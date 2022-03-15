@@ -1,4 +1,4 @@
-FROM jupyter/base-notebook:lab-3.2.1
+FROM jupyter/base-notebook:lab-3.3.1
 
 USER root
 
@@ -22,7 +22,7 @@ RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2
 #     chmod +x /usr/local/bin/ttyd
 
 ## Install code-server
-RUN curl -Lkv -o code-server.deb https://github.com/cdr/code-server/releases/download/v3.12.0/code-server_3.12.0_amd64.deb &&\
+RUN curl -Lkv -o code-server.deb https://github.com/coder/code-server/releases/download/v4.1.0/code-server_4.1.0_amd64.deb &&\
     dpkg -i code-server.deb
 
 # ## Install Rstudio
