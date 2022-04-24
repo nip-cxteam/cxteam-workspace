@@ -1,4 +1,4 @@
-FROM jupyter/base-notebook:lab-3.3.3
+FROM jupyter/base-notebook:lab-3.3.4
 
 USER root
 
@@ -22,7 +22,7 @@ RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2
 #     chmod +x /usr/local/bin/ttyd
 
 ## Install code-server
-RUN curl -Lkv -o code-server.deb https://github.com/coder/code-server/releases/download/v4.2.0/code-server_4.2.0_amd64.deb &&\
+RUN curl -Lkv -o code-server.deb https://github.com/coder/code-server/releases/download/v4.3.0/code-server_4.3.0_amd64.deb &&\
     dpkg -i code-server.deb
 
 # ## Install Rstudio
@@ -36,6 +36,11 @@ RUN cat condarc_append.txt >> /opt/conda/.condarc
 
 COPY jupyter_config_append.py /tmp/
 RUN cat jupyter_config_append.py >> /etc/jupyter/jupyter_notebook_config.py
+
+## Add some nice-looking themes from GitHub
+RUN jupyter labextension update @rahlir/theme-gruvbox &&\
+    jupyter labextension install @telamonian/theme-darcula &&\
+    jupyter labextension install @oriolmirosa/jupyterlab_materialdarker
 
 ## Perform cleanup
 RUN rm -rf /tmp/* &&\
