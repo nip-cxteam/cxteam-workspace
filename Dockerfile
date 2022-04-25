@@ -41,8 +41,7 @@ RUN cat jupyter_config_append.py >> /etc/jupyter/jupyter_notebook_config.py
 RUN jupyter labextension install @rahlir/theme-gruvbox &&\
     jupyter labextension install @mohirio/jupyterlab-horizon-theme &&\
     jupyter labextension install @telamonian/theme-darcula &&\
-    jupyter labextension install @oriolmirosa/jupyterlab_materialdarker &&\
-    jupyter labextension install jupyterlab-tailwind-theme
+    jupyter labextension install @oriolmirosa/jupyterlab_materialdarker
 
 ## Perform cleanup
 RUN rm -rf /tmp/* &&\
