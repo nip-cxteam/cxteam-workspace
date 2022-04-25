@@ -38,8 +38,7 @@ COPY jupyter_config_append.py /tmp/
 RUN cat jupyter_config_append.py >> /etc/jupyter/jupyter_notebook_config.py
 
 ## Add some nice-looking themes from GitHub
-RUN jupyter labextension install @rahlir/theme-gruvbox &&\
-    jupyter labextension install @mohirio/jupyterlab-horizon-theme &&\
+RUN jupyter labextension install @mohirio/jupyterlab-horizon-theme &&\
     jupyter labextension install @telamonian/theme-darcula &&\
     jupyter labextension install @oriolmirosa/jupyterlab_materialdarker
 
