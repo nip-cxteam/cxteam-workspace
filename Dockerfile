@@ -6,7 +6,7 @@ WORKDIR /tmp
 
 RUN apt update && apt install -y \
     less openssh-client mosh zstd \
-    zsh htop curl git byobu vim
+    zsh htop curl git byobu vim squashfs-tools
 
 RUN mamba install -y \
         singularity rclone mkl \
