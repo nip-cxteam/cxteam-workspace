@@ -5,11 +5,11 @@ USER root
 WORKDIR /tmp
 
 RUN apt update && apt install -y \
-    less openssh-client mosh zstd \
+    less openssh-client mosh zstd iputils-ping \
     zsh htop curl git byobu vim squashfs-tools
 
 RUN mamba install -y \
-        singularity rclone mkl \
+        rclone mkl \
         nb_conda_kernels jupyter-server-proxy \
         numpy scipy matplotlib pandas
 
