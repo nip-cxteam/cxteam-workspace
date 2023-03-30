@@ -1,4 +1,4 @@
-FROM jupyter/base-notebook:lab-3.5.2
+FROM jupyter/base-notebook:lab-3.6.2
 
 USER root
 
@@ -11,7 +11,7 @@ RUN apt update && apt install -y \
 RUN mamba install -y \
         rclone mkl \
         nb_conda_kernels jupyter-server-proxy \
-        numpy scipy matplotlib pandas
+        numpy scipy matplotlib pandas zip unzip
 
 ## Install gotty
 RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_amd64.tar.gz  &&\
@@ -22,7 +22,7 @@ RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2
 #     chmod +x /usr/local/bin/ttyd
 
 ## Install code-server
-RUN curl -Lkv -o code-server.deb https://github.com/coder/code-server/releases/download/v4.9.1/code-server_4.9.1_amd64.deb &&\
+RUN curl -Lkv -o code-server.deb https://github.com/coder/code-server/releases/download/v4.11.0/code-server_4.11.0_amd64.deb &&\
     dpkg -i code-server.deb
 
 # ## Install Rstudio
@@ -32,7 +32,7 @@ RUN curl -Lkv -o code-server.deb https://github.com/coder/code-server/releases/d
 COPY assets /usr/local/share/assets
 
 COPY condarc_append.txt /tmp/
-RUN cat condarc_append.txt >> /opt/conda/.condarc
+RUN cat condarc_append.txt > /opt/conda/.condarc
 
 COPY jupyter_config_append.py /tmp/
 RUN cat jupyter_config_append.py >> /etc/jupyter/jupyter_notebook_config.py
