@@ -1,4 +1,4 @@
-FROM jupyter/base-notebook:lab-3.6.3
+FROM jupyter/base-notebook:lab-4.0.7
 
 USER root
 
@@ -9,9 +9,8 @@ RUN apt update && apt install -y \
     zsh htop curl git byobu vim squashfs-tools
 
 RUN mamba install -y \
-        rclone mkl \
-        nb_conda_kernels jupyter-server-proxy \
-        numpy scipy matplotlib pandas zip unzip
+        rclone nb_conda_kernels jupyter-server-proxy \
+        numpy scipy matplotlib pandas zip unzip python-lsp-server
 
 ## Install gotty
 RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_amd64.tar.gz  &&\
@@ -38,8 +37,9 @@ COPY jupyter_config_append.py /tmp/
 RUN cat jupyter_config_append.py >> /etc/jupyter/jupyter_notebook_config.py
 
 ## Add some nice-looking themes from GitHub
-RUN jupyter labextension install @telamonian/theme-darcula &&\
-    jupyter labextension install @oriolmirosa/jupyterlab_materialdarker
+RUN pip install jupyterlab-simpledark theme-darcula jupyterlab-materialdarker catppuccin-jupyterlab
+
+RUN jlpm add --dev pyright unified-language-server
 
 ## Perform cleanup
 RUN rm -rf /tmp/* &&\
