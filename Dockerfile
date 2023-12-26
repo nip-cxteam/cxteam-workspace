@@ -37,7 +37,7 @@ COPY jupyter_config_append.py /tmp/
 RUN cat jupyter_config_append.py >> /etc/jupyter/jupyter_notebook_config.py
 
 ## Add some nice-looking themes from GitHub
-RUN pip install jupyterlab-simpledark theme-darcula jupyterlab-materialdarker catppuccin-jupyterlab
+RUN pip install theme-darcula catppuccin-jupyterlab
 
 RUN jlpm add --dev pyright unified-language-server
 
