@@ -21,7 +21,7 @@ RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2
 #     chmod +x /usr/local/bin/ttyd
 
 ## Install code-server
-RUN curl -Lkv -o code-server.deb https://github.com/coder/code-server/releases/download/v4.20.0/code-server_4.20.0_amd64.deb &&\
+RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.20.0/code-server_4.20.0_amd64.deb &&\
     dpkg -i code-server.deb
 
 # ## Install Rstudio
@@ -38,8 +38,6 @@ RUN cat jupyter_config_append.py >> /etc/jupyter/jupyter_notebook_config.py
 
 ## Add some nice-looking themes from GitHub
 RUN pip install theme-darcula catppuccin-jupyterlab
-
-RUN jlpm add --dev pyright unified-language-server
 
 ## Perform cleanup
 RUN rm -rf /tmp/* &&\
