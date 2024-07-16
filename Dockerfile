@@ -21,7 +21,7 @@ RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2
 #     chmod +x /usr/local/bin/ttyd
 
 ## Install code-server
-RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.20.0/code-server_4.20.0_amd64.deb &&\
+RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.91.0/code-server_4.91.0_amd64.deb &&\
     dpkg -i code-server.deb
 
 # ## Install Rstudio
