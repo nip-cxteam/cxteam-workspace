@@ -2,10 +2,6 @@ auto_update_conda: false
 show_channel_urls: true
 channels:
   - conda-forge
-  - pytorch
-  - fastchan
-  - intel
-  - defaults
 
 envs_dirs:
     - /home/jovyan/.conda-envs
