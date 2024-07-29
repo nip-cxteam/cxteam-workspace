@@ -1,4 +1,4 @@
-FROM jupyter/base-notebook:lab-4.0.7
+FROM quay.io/jupyter/base-notebook:lab-4.2.4
 
 USER root
 
