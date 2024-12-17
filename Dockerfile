@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/base-notebook:lab-4.2.5
+FROM quay.io/jupyter/base-notebook:lab-4.3.3
 
 USER root
 
@@ -45,7 +45,6 @@ RUN pip install --no-cache-dir theme-darcula catppuccin-jupyterlab
 
 ## Perform cleanup
 RUN rm -rf /tmp/* &&\
-    npm cache clean --force &&\
     mamba clean --all -f -y
 
 ## Return to base-notebook default user
