@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/base-notebook:lab-4.3.6
+FROM quay.io/jupyter/base-notebook:lab-4.4.6
 
 USER root
 
@@ -9,27 +9,27 @@ RUN apt update && apt install -y \
     zsh htop curl git byobu vim squashfs-tools
 
 RUN mamba install -y \
-    rclone nb_conda_kernels jupyter-server-proxy \
-        numpy scipy matplotlib pandas zip unzip python-lsp-server
+    rclone nb_conda_kernels jupyter-server-proxy seaborn \
+    numpy scipy matplotlib pandas zip unzip python-lsp-server
 
 ## Install gotty
-RUN wget https://github.com/yudai/gotty/releases/download/v2.0.0-alpha.3/gotty_2.0.0-alpha.3_linux_amd64.tar.gz  &&\
-    tar xvf gotty_2.0.0-alpha.3_linux_amd64.tar.gz &&\
+RUN wget https://github.com/sorenisanerd/gotty/releases/download/v1.6.0/gotty_v1.6.0_linux_amd64.tar.gz  &&\
+    tar xvf gotty_v1.6.0_linux_amd64.tar.gz &&\
     mv gotty /usr/local/bin/
 
 
 ## Install code-server
-RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.98.2/code-server_4.98.2_amd64.deb &&\
+RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.103.1/code-server_4.103.1_amd64.deb &&\
     dpkg -i code-server.deb
 
 ## Install MS VSCode
-RUN wget -O code.tar.gz https://update.code.visualstudio.com/1.98.2/cli-linux-x64/stable &&\
+RUN wget -O code.tar.gz https://update.code.visualstudio.com/1.103.1/cli-linux-x64/stable &&\
     tar xvf code.tar.gz &&\
     chmod +x code &&\
     mv code /usr/local/bin/
 
 # ## Install Rstudio
-# RUN curl -Lkv -o rstudio.deb https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.0-351-amd64.deb &&\
+# RUN curl -Lkv -o rstudio.deb https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2025.05.1-513-amd64.deb &&\
 #     dpkg -i rstudio.deb
 
 COPY assets /usr/local/share/assets
