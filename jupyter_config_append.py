@@ -1,6 +1,6 @@
 c.ServerProxy.servers = {
     'code': {
-        'command': ['/usr/bin/code-server', '--auth', 'none', '--disable-telemetry', '--bind-addr', '0.0.0.0:{port}'],
+        'command': ['/usr/local/bin/code', 'serve-web', '--host', '0.0.0.0', '--port', '{port}', '--without-connection-token', '--accept-server-license-terms'],
         'timeout': 20,
         'launcher_entry': {'title': 'VS Code', 'icon_path': '/usr/local/share/assets/vscode.svg'}
     },
@@ -17,7 +17,7 @@ c.ServerProxy.servers = {
     # },
     'gotty': {
         'command': ['/usr/local/bin/gotty', '-w', '--port', '{port}', 'byobu'],
-        'environment': {'USER':'jovyan', 'TERM': 'xterm-256color'},
+        'environment': {'USER':'jovyan', 'TERM': 'xterm-256color', 'GOTTY_CONFIG': '/home/jovyan/.gotty'},
         'timeout': 20,
         'launcher_entry': {'title': 'GoTTY', 'icon_path': '/usr/local/share/assets/Byobu.svg'}
     }
