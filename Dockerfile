@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/base-notebook:lab-4.4.9
+FROM quay.io/jupyter/base-notebook:lab-4.5.3
 
 USER root
 
@@ -24,11 +24,11 @@ RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.x86_64  &&
 
 
 ## Install code-server
-RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.107.0/code-server_4.107.0_amd64.deb &&\
+RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.109.2/code-server_4.109.2_amd64.deb &&\
     dpkg -i code-server.deb
 
 ## Install MS VSCode
-RUN wget -O code.tar.gz https://update.code.visualstudio.com/1.107.1/cli-linux-x64/stable &&\
+RUN wget -O code.tar.gz https://update.code.visualstudio.com/1.109.3/cli-linux-x64/stable &&\
     tar xvf code.tar.gz &&\
     chmod +x code &&\
     mv code /usr/local/bin/
