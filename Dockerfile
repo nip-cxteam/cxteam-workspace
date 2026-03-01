@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/base-notebook:lab-4.5.3
+FROM quay.io/jupyter/base-notebook:lab-4.5.4
 
 USER root
 
@@ -10,7 +10,8 @@ RUN apt update && apt install -y \
 
 RUN mamba install -y \
     rclone nb_conda_kernels jupyter-server-proxy seaborn \
-    numpy scipy matplotlib pandas zip unzip python-lsp-server
+    numpy scipy matplotlib pandas zip unzip python-lsp-server \
+    jupyterlab_execute_time
 
 ## Install gotty
 # RUN wget https://github.com/sorenisanerd/gotty/releases/download/v1.6.0/gotty_v1.6.0_linux_amd64.tar.gz  &&\
