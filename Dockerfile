@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/base-notebook:lab-4.5.4
+FROM quay.io/jupyter/base-notebook:lab-4.5.6
 
 USER root
 
@@ -13,23 +13,18 @@ RUN mamba install -y \
     numpy scipy matplotlib pandas zip unzip python-lsp-server \
     jupyterlab_execute_time
 
-## Install gotty
-# RUN wget https://github.com/sorenisanerd/gotty/releases/download/v1.6.0/gotty_v1.6.0_linux_amd64.tar.gz  &&\
-#     tar xvf gotty_v1.6.0_linux_amd64.tar.gz &&\
-#     mv gotty /usr/local/bin/
 ## Use TTYD instead
 RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.x86_64  &&\
     mv ttyd.x86_64 ttyd &&\
     mv ttyd /usr/local/bin/ &&\
     chmod +x /usr/local/bin/ttyd
 
-
 ## Install code-server
-RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.109.2/code-server_4.109.2_amd64.deb &&\
+RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.115.0/code-server_4.115.0_amd64.deb &&\
     dpkg -i code-server.deb
 
 ## Install MS VSCode
-RUN wget -O code.tar.gz https://update.code.visualstudio.com/1.109.3/cli-linux-x64/stable &&\
+RUN wget -O code.tar.gz https://update.code.visualstudio.com/1.115.0/cli-linux-x64/stable &&\
     tar xvf code.tar.gz &&\
     chmod +x code &&\
     mv code /usr/local/bin/
