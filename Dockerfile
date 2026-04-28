@@ -20,11 +20,11 @@ RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.x86_64  &&
     chmod +x /usr/local/bin/ttyd
 
 ## Install code-server
-RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.115.0/code-server_4.115.0_amd64.deb &&\
+RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.117.0/code-server_4.117.0_amd64.deb &&\
     dpkg -i code-server.deb
 
 ## Install MS VSCode
-RUN wget -O code.tar.gz https://update.code.visualstudio.com/1.115.0/cli-linux-x64/stable &&\
+RUN wget -O code.tar.gz https://update.code.visualstudio.com/1.117.0/cli-linux-x64/stable &&\
     tar xvf code.tar.gz &&\
     chmod +x code &&\
     mv code /usr/local/bin/
@@ -42,7 +42,9 @@ COPY jupyter_config_append.py /tmp/
 RUN cat jupyter_config_append.py >> /etc/jupyter/jupyter_notebook_config.py
 
 ## Add some nice-looking themes from GitHub
-RUN pip install --no-cache-dir theme-darcula catppuccin-jupyterlab
+RUN pip install --no-cache-dir theme-darcula catppuccin-jupyterlab \
+        jupyterlab-horizon-theme jupyterlab_materialdarker jupyterlab-git \
+        jupyter-lsp jupyterlab-lsp "python-lsp-server[all]"
 
 ## Perform cleanup
 RUN rm -rf /tmp/* &&\
