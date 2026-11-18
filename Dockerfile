@@ -20,7 +20,7 @@ RUN wget https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.x86_64  &&
     chmod +x /usr/local/bin/ttyd
 
 ## Install code-server
-RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.152.2/code-server_4.152.2_amd64.deb &&\
+RUN curl -Lk -o code-server.deb https://github.com/coder/code-server/releases/download/v4.145.2/code-server_4.145.2_amd64.deb &&\
     dpkg -i code-server.deb
 
 ## Install MS VSCode
