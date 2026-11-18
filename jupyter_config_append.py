@@ -7,6 +7,7 @@ c.ServerProxy.servers = {
             "--disable-telemetry",
             "--disable-update-check",
             "--trusted-origins",
+            "*",
             "--app-name",
             "CXCode",
             "--bind-addr",
